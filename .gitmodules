@@ -40,7 +40,7 @@
 	shallow = true
 [submodule "third_party/mmg"]
 	path = third_party/mmg
-	url = https://github.com/PyMesh/mmg.git
+	url = https://github.com/nuvolos-cloud/mmg.git
 	shallow = true
 [submodule "third_party/geogram"]
 	path = third_party/geogram
