@@ -15,8 +15,9 @@ RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" >>
     libboost-dev \
     libboost-thread-dev \
     zip unzip patchelf && \
-    apt-get clean && \
-    git clone --single-branch -b $BRANCH https://github.com/nuvolos-cloud/PyMesh.git
+    apt-get clean
+
+RUN git clone --single-branch -b $BRANCH https://github.com/nuvolos-cloud/PyMesh.git
 
 ENV PYMESH_PATH /root/PyMesh
 ENV NUM_CORES $NUM_CORES
