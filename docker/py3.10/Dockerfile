@@ -5,8 +5,8 @@ ARG NUM_CORES=2
 
 RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" >> /etc/apt/sources.list.d/unstable.list &&\
     apt-get update && apt-get install -y \
-    gcc-10 \
-    g++-10 \
+    gcc-9 \
+    g++-9 \
     git \
     cmake \
     libgmp-dev \
