@@ -42,7 +42,7 @@ void MMG::Delaunay::run() {
 
     const size_t num_points = m_points.rows();
     const size_t num_segments = m_segments.rows();
-    if (MMG2D_Set_meshSize(mmgMesh,num_points,0,num_segments) != 1) {
+    if (MMG2D_Set_meshSize(mmgMesh,num_points,0,0,num_segments) != 1) {
         throw RuntimeError("MMG2D_Set_meshSize failed.");
     }
 
@@ -83,7 +83,7 @@ void MMG::Delaunay::run() {
 
     int num_vertices, num_triangles, num_edges;
     if (MMG2D_Get_meshSize(mmgMesh,
-                &num_vertices, &num_triangles, &num_edges) !=1) {
+                &num_vertices, &num_triangles, 0, &num_edges) !=1) {
         throw RuntimeError("MMG2D_Get_meshSize failed.");
     }
 
@@ -153,7 +153,7 @@ void MMG::Delaunay::refine(const MatrixFr& metric) {
         throw RuntimeError("Setting MMG2D_DPARAM_hmax failed.");
     }
 
-    if (MMG2D_Set_meshSize(mmgMesh,num_input_vertices,num_input_faces,0) != 1) {
+    if (MMG2D_Set_meshSize(mmgMesh,num_input_vertices,num_input_faces, 0,0) != 1) {
         throw RuntimeError("MMG2D_Set_meshSize failed.");
     }
 
@@ -213,7 +213,7 @@ void MMG::Delaunay::refine(const MatrixFr& metric) {
 
     int num_vertices, num_triangles, num_edges;
     if (MMG2D_Get_meshSize(mmgMesh,
-                &num_vertices, &num_triangles, &num_edges) !=1) {
+                &num_vertices, &num_triangles, 0, &num_edges) !=1) {
         throw RuntimeError("MMG2D_Get_meshSize failed.");
     }
 
