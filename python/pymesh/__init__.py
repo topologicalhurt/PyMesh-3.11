@@ -2,6 +2,15 @@ from .version import __version__
 from . import PyMeshSetting
 from .timethis import timethis
 
+def test():
+    import unittest
+    import os
+
+    loader = unittest.TestLoader()
+    start_dir = os.path.join(os.path.dirname(__file__), 'tests')
+    suite = loader.discover(start_dir)
+    runner = unittest.TextTestRunner()
+    runner.run(suite)
 
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
