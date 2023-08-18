@@ -28,5 +28,9 @@ RUN git submodule update --init && \
     ./setup.py bdist_wheel && \
     rm -rf build_3.7 third_party/build && \
     python $PYMESH_PATH/docker/patches/patch_wheel.py dist/pymesh2*.whl && \
+    pip install --upgrade pip && \
     pip install dist/pymesh2*.whl && \
     python -c "import pymesh; pymesh.test()"
+
+
+CMD ["sleep", "infinity"]
